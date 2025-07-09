@@ -1,0 +1,73 @@
+/* Reset and base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Background styling */
+.background {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  z-index: -1;
+  filter: blur(8px);
+}
+
+/* Container styling */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  color: white;
+  text-align: center;
+}
+
+/* Title styling */
+.title {
+  font-size: 2.8rem;
+  margin-bottom: 30px;
+  color: #f0f8ff;
+}
+
+/* Card styling */
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 700px;
+  width: 100%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Content styling */
+.card h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #ffcc70;
+}
+
+.card ul {
+  list-style: none;
+  text-align: left;
+  padding-left: 0;
+  margin-top: 15px;
+}
+
+.card ul li {
+  padding: 5px 0;
+  font-size: 1.1rem;
+  color: #e0e0e0;
+}
+
+.note {
+  margin-top: 20px;
+  font-style: italic;
+  color: #d6f5f5;
+}
