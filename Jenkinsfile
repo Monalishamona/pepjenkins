@@ -5,31 +5,31 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo 'Cloning the repository...'
-                // Jenkins automatically checks out the repo in declarative pipeline
+                git credentialsId: 'github-token', url: 'https://github.com/Monalishamona/pepjenkins.git'
             }
         }
 
         stage('Build') {
             steps {
                 echo 'Setting up workspace...'
-                bat 'mkdir output'
-                bat 'copy index.html output\\'
-                bat 'copy styles.css output\\'
+                sh 'mkdir -p output'
+                sh 'cp index.html output/'
+                sh 'cp styles.css output/'
             }
         }
 
         stage('Test') {
             steps {
                 echo 'Checking if HTML file exists...'
-                bat 'if exist output\\index.html (echo HTML file is present) else (exit /b 1)'
+                sh 'test -f output/index.html && echo "HTML file found"'
             }
         }
 
         stage('Run Local Server') {
             steps {
-                echo 'Starting local server (for demonstration only)...'
-                bat 'python -m http.server 8080 --directory output'
-                // Use timeout or run only in local/dev; servers in CI will hang
+                echo 'Starting local server (for demonstration)...'
+                sh 'python3 -m http.server 8080 --directory output &'
+                sh 'sleep 10' // simulate waiting
             }
         }
     }
